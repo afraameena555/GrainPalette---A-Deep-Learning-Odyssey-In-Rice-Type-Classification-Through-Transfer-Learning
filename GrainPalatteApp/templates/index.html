@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <title>GrainPalette - Upload Rice Image</title>
+  <link rel="icon" href="{{ url_for('static', filename='icon.jpg') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-success shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">🌾 GrainPalette</a>
+      <button class="btn btn-outline-light" onclick="toggleTheme()">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <div class="container mt-5 text-center">
+    <h3 class="mb-4">Upload a Rice Grain Image</h3>
+
+    <form action="/details" method="post" enctype="multipart/form-data" class="card p-4 shadow w-50 mx-auto">
+      <div class="mb-3">
+        <input class="form-control" type="file" name="file" required>
+      </div>
+      <button class="btn btn-success w-100" type="submit">Upload</button>
+    </form>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute("data-bs-theme");
+      document.documentElement.setAttribute("data-bs-theme", current === "light" ? "dark" : "light");
+    }
+  </script>
+</body>
+</html>
